@@ -215,8 +215,6 @@ class Phoebus
 		return $metaValue;
 	}
 
-
-
 	/**
 	 * Parses string for exerp line and returns everything before it
 	 * @param  [string] $content [post content to be parsed]
