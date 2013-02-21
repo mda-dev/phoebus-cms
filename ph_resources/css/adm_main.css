@@ -1,0 +1,105 @@
+html, body, .wrap-all{
+	height: auto;
+}
+body{
+	padding-bottom: 100px;
+}
+.hero-unit .btn.badge{
+	padding: 5px;
+	font-weight: 300;
+	position:absolute;
+	bottom:0;
+	right:0;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	-ms-border-radius: 4px 4px 0 0;
+	-o-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+
+#cat-list{
+	padding-top: 5px;
+}
+
+#cat-list input{
+	margin: 0;
+}
+
+.nav i{
+	margin-top: 3px;
+}
+.nav i.icon-th-list,
+.nav i.icon-user,
+.nav i.icon-picture{
+	margin-top: 2px;
+}
+
+#cat-list label{
+
+}
+#cat-list li{
+	margin:0 4px 8px 0;
+	padding: 0;
+}
+.checkbox span{
+	display: inline-block;
+}
+
+#message-container .alert{
+	border-radius: 0 0 4px 4px;
+}
+
+#manage .span1,
+#manage .action{
+	text-align: center;
+}
+
+#manage form{
+	margin: 0;
+}
+
+.error-link{
+	color:inherit !important;
+	font-weight:bold;
+}
+
+
+.remove-item i, .select-img i{
+	margin-top:3px !important;
+}
+#gal-image-pick input{
+    margin: 0 4px 0 0;
+}
+#gal-image-pick .img-details{
+    margin-top:8px;
+    font-size: 12px;
+}
+
+#gal-image-pick .img-block{
+    padding: 8px;
+	border: 1px solid #eee;
+	background: #fafafa;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0 3px rgba(0,0,0, 0,3);
+	box-shadow: 0 0 3px rgba(0,0,0, 0,3);
+}
+#gal-image-pick .grid-view{
+    margin-bottom: 20px;
+}
+#gal-image-pick img{
+    max-width: 135px;
+}
+
+hr.soft.small{
+	margin: 10px 0 20px 0;
+}
+.control-group.block1 label{
+	font-weight: bold;
+}
+
+@media (max-width: 767px){
+	#gal-image-pick img{
+		max-width: 100%;
+	}
+}
+
