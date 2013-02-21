@@ -65,7 +65,6 @@ class Phoebus
 		echo PH_URL;
 	}
 
-
 	public function dbCount($table)
 	{
 		$rows = $this->database->getTable($table);
@@ -109,6 +108,11 @@ class Phoebus
 		return date('l jS \of F Y');
 	}
 
+
+	/**
+	 * Automaticly include all subclass file
+	 * @return [void]
+	 */	
 	private function _includeClasses()
 	{
 		$classFiles = PH_ABSPATH ."classes/";
@@ -125,8 +129,14 @@ class Phoebus
 				$classFile !== "Phoebus.php"){
 				require_once($classFiles .$classFile);
 		}
-	}	}
+	}
 
+
+	/**
+	 * Funny localization of some strings
+	 * @param  [string] $value [string to be localized]
+	 * @return [string]        [localized string]
+	 */
 	public function queryResult($value)
 	{
 		if($value == "success"){
@@ -139,24 +149,34 @@ class Phoebus
 		return $value;
 	}
 
+	/**
+	 * Stylesheet url from the resource folder
+	 * @param  [string] $value [filename] ex: main.css
+	 * @return [void]
+	 */
 	public function cssUri($value= "")
 	{
 		echo PH_URL . "ph_resources/css/" . $value;
 	}
 
+	/**
+	 * Javascript url from the resource folder
+	 * @param  [string] $value [filename] ex: main.css
+	 * @return [void]
+	 */
 	public function jsUri($value = "")
 	{
 		echo PH_URL . "ph_resources/js/" . $value;
 	}
 
+	/**
+	 * Image url from the resource folder
+	 * @param  [string] $value [filename] ex: main.css
+	 * @return [void]
+	 */
 	public function imgUri($value = "")
 	{
 		echo PH_URL . "ph_resources/img/" . $value;
-	}
-
-	public function resourceUri($value = '')
-	{
-		echo PH_URL . "ph_resources/img/". $value;
 	}
 
 	public function checkCategory($categoryId , $categoryRelation)
@@ -196,7 +216,11 @@ class Phoebus
 		return $metaValue;
 	}
 
-
+	/**
+	 * Parses string for exerp line and returns everything before it
+	 * @param  [string] $content [post content to be parsed]
+	 * @return [string]          [exerp of the content]
+	 */
 	public function justExerp($content)
 	{
 		$exerp = '<hr class="exerp" />';
@@ -209,6 +233,12 @@ class Phoebus
 		return $content;
 	}
 
+
+	/**
+	 * Formats unites depending on number of bytes
+	 * @param  [int]    $bytes [number of bytes]
+	 * @return [string]        [number of bytes formated in bytes, kb, mb, gb]
+	 */
 	public function formatSizeUnits($bytes)
 	{
 		if ($bytes >= 1073741824)
