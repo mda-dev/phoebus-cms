@@ -32,7 +32,7 @@ class Phoebus_session{
 	 * @param  string $password [password value should be given]
 	 * @return 					[returns nothing]
 	 */
-	private function do_logIn($username, $password)
+	private function _doLogIn($username, $password)
 	{
 		global $ph;
 
@@ -64,7 +64,7 @@ class Phoebus_session{
 	 * Logs out the user and destroys $_SESSION
 	 * @return 	[returns nothing]
 	 */	
-	private function do_logOut()
+	private function _doLogOut()
 	{
 		$_SESSION = array();
 		
@@ -92,13 +92,13 @@ class Phoebus_session{
 			$password = $_POST["login_form_password"];
 
 			if(!isset($_SESSION["user_name"])){
-				$this->do_logIn($username, $password);
+				$this->_doLogIn($username, $password);
 			}
 			
 		}else if(isset($_POST["user-logout"])){
-			$this->do_logOut();
+			$this->doLogOut();
 		}else if( strpos($ph->url, "user-logout") ){
-			$this->do_logOut();
+			$this->doLogOut();
 		}
 	}
 
