@@ -150,7 +150,7 @@ class Phoebus
 	}
 
 	/**
-	 * Stylesheet url from the resource folder
+	 * Echoes a url from the resource/css folder
 	 * @param  [string] $value [filename] ex: main.css
 	 * @return [void]
 	 */
@@ -160,7 +160,7 @@ class Phoebus
 	}
 
 	/**
-	 * Javascript url from the resource folder
+	 * Echoes a url from the resource/js folder
 	 * @param  [string] $value [filename] ex: main.css
 	 * @return [void]
 	 */
@@ -170,7 +170,7 @@ class Phoebus
 	}
 
 	/**
-	 * Image url from the resource folder
+	 * Echoes a url from the resource/img folder
 	 * @param  [string] $value [filename] ex: main.css
 	 * @return [void]
 	 */
@@ -178,7 +178,6 @@ class Phoebus
 	{
 		echo PH_URL . "ph_resources/img/" . $value;
 	}
-
 	public function checkCategory($categoryId , $categoryRelation)
 	{
 		$checkedAttr = NULL;
