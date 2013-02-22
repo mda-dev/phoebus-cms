@@ -55,13 +55,6 @@
 	define("DB_NAME",	DB_PREFIX . "cms");
 
 
-	/**
-	 * DEFINE SECURITY KEYS
-	 */
-	define("PH_AUTH_KEY",        'g^F#g4lQ:JIxd$CJx|R3=P7ZNh~m^VBT*u^6dZ$.y*Bc=/*sei5A`By(DY&orM-_');
-	define("PH_SALT_KEY",		 'S-s4Y&&6.i>rE|!kqiFEB+`A^UZp+HtUF7k8t#m^*+#_a5njBMz$mp) (q)fIOL<');
-
-
 	define("PH_DEVELOP_MODE", TRUE);
 
 ?>
