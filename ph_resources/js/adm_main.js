@@ -1,64 +1,6 @@
-$("#ph-hide-notice").on("click", function(){
+//slug character arrays
+slugArray = function(){
 
-	$(this).fadeOut(800, function(){
-
-		var CookieDate = new Date;
-		CookieDate.setFullYear(CookieDate.getFullYear( )+1);
-		//console.log(CookieDate.toGMTString());
-		version = $(this).attr("href").replace("#", "");
-		document.cookie="ph_hide_new_ver_notice=" + version + '; expires=' + CookieDate.toGMTString() + '; path='+ window.location.pathname;
-		$("#hide-version-notice").fadeOut(800)
-	});
-	
-	return false;
-});
-
-if( $("textarea[name*='content']").attr("id")){
-	$name = $("textarea[name*='content']").attr("name");
-
-	CKEDITOR.replace( $name );
-
-	console.log(CKEDITOR.basePath);
-	//console.log();
-}
-
-$(".error-link.back").click(function(){
-	window.history.go(-1);
-	return false;
-});
-
-$("#post_slug").on("keypress", function(e){
-	//e.preventDefault();
-	var th = $(this);
-	$val = $(this).val();
-	$key = String.fromCharCode(e.which);
-	newValue = $(this).val();
-
-		var match = new slugArray();
-
-		if(match[$key]){
-			newValue = $val + match[$key];
-		}else{
-
-			switch ($key){
-				case " ":
-					newValue = $val + "-";
-					break;
-				default:
-						if( /^[a-zA-Z0-9_-]+$/.test($key)){
-							newValue = $val + $key;
-						}
-					break;
-			}
-
-
-		}
-
-	//th.val(newValue.toLowerCase());
-});
-
-
-var slugArray = function(){
 	$a = [
 		'À','Á','Â','Ã','Ä','Å','Æ','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ò','Ó','Ô','Õ','Ö','Ø','Ù','Ú','Û','Ü','Ý','ß',
 		'à','á','â','ã','ä','å','æ','ç','è','é','ê','ë','ì','í','î','ï','ñ','ò','ó','ô','õ','ö','ø','ù','ú','û','ü','ý','ÿ','Ā',
@@ -87,6 +29,66 @@ var slugArray = function(){
 }
 
 
+
+
+//hide phoebus version notice
+$("#ph-hide-notice").on("click", function(){
+	$(this).fadeOut(800, function(){
+
+		var CookieDate = new Date;
+		CookieDate.setFullYear(CookieDate.getFullYear( )+1);
+		//console.log(CookieDate.toGMTString());
+		version = $(this).attr("href").replace("#", "");
+		document.cookie="ph_hide_new_ver_notice=" + version + '; expires=' + CookieDate.toGMTString() + '; path='+ window.location.pathname;
+		$("#hide-version-notice").fadeOut(800)
+	});
+	
+	return false;
+});
+
+
+//initialize ck editor on content textfields
+if( $("textarea[name*='content']").attr("id")){
+	$name = $("textarea[name*='content']").attr("name");
+	CKEDITOR.replace( $name );
+}
+
+//small javascript back link
+$(".error-link.back").click(function(){
+	window.history.go(-1);
+	return false;
+});
+
+
+//Automatic slug generation
+$("input[name*='_title']").on("blur", function(e){
+	$slugField = $("input[name*='_slug']");
+	match      = new slugArray();
+	val        = $(this).val();
+	slugVal    = new String();
+
+	for (i = 0; i < val.length; i++){
+		ch = val.charAt(i);
+
+		if(match[ch]){
+			slugVal += match[ch];
+		}else{
+			switch (ch){
+				case " ":
+					slugVal += "-";
+					break;
+				default:
+					if( /^[a-zA-Z0-9_-]+$/.test(ch)){
+						slugVal += ch;
+					}
+					break;
+			}
+		}
+	}
+	$slugField.val(slugVal);
+});
+
+//bind add new gallery item
 $("#add-gallery-item").click(function(){
     // get number of blocks
     var count = $(".control-group.block1").length;
