@@ -128,14 +128,15 @@ class Phoebus_database
 
 				case 'blog':
 					$query = "INSERT INTO ";
-					$query .= DB_PREFIX . "blog(title , slug, content, author, date, categ_rel) ";
+					$query .= DB_PREFIX . "blog(title , slug, content, author, date, categ_rel, feat_image) ";
 					$query .= "VALUES( ";
 					$query .= "'{$safe_data["post_title"]}',"; 
 					$query .= "'{$safe_data["post_slug"]}',"; 
 					$query .= "'{$safe_data["post_content"]}',"; 
 					$query .= "'$post_author',";
 					$query .= "'$post_date',";
-					$query .= " {$safe_data["post_category"]}) ";
+					$query .= " {$safe_data["post_category"]},";
+					$query .= "'{$safe_data["post_image"]}')";
 						$title_type = "post_title";
 					break;
 				
@@ -205,7 +206,8 @@ class Phoebus_database
 					$query .= "title='{$safe_data["post_title"]}', ";
 					$query .= "slug='{$safe_data["post_slug"]}', ";
 					$query .= "content='{$safe_data["post_content"]}', ";
-					$query .= "categ_rel={$safe_data["post_category"]} ";
+					$query .= "categ_rel={$safe_data["post_category"]}, ";
+					$query .= "feat_image='{$safe_data["post_image"]}' ";
 					$query .= "WHERE id={$safe_data["edit_post"]}";
 						$title_type = "post_title";
 					break;

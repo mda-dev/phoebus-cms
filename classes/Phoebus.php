@@ -124,10 +124,11 @@ class Phoebus
 			$count = count($_tmp);
 			$extention = $_tmp[$count - 1];
 
-			if( $extention == "php" && 
 				//ignore main file
+			if( $extention == "php" && 
 				$classFile !== "Phoebus.php"){
-				require_once($classFiles .$classFile);
+				require_once($classFiles . $classFile);
+			}
 		}
 	}
 

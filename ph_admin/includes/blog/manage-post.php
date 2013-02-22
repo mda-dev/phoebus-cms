@@ -10,7 +10,7 @@
 				<div class="page-header">
 					<h1>Edit post: <?php echo $title ?><small>Update specific post data</small></h1>
 				</div>
-				<form class="form-horizontal" method="post" action="">
+				<form id="post_form" class="form-horizontal" method="post" action="">
 					<div class="control-group">
 						<label class="control-label" for="post_title">Title</label>
 						<div class="controls">
@@ -58,6 +58,17 @@
 					</div>
 
 					<div class="control-group">
+						<label  class="control-label" for="post_image">Featured Image</label>
+						<div class="controls">
+							<div class="input-prepend input-append">
+								<span class="add-on"><i class="icon-picture"></i></span>
+								<input id="post_image" type="text" name="post_image" class="span4" placeholder="Item url..." value="<?php echo $feat_image ?>"> 
+								<a href="#" class="btn select-img" data-toggle="tooltip" title="Select Image" data-placement="right"><i class="icon-plus"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="control-group">
 						<label  class="control-label" for="post_content">Content</label>
 						<div class="controls">
 							<textarea id="post_content" name="post_content" class="span5" rows="10" placeholder="Post content Goes in gere">
@@ -80,4 +91,6 @@
 		</div>
 	</div>
 </div>
+
+<?php $ph->admin->loadSubView("gallery/image-picker-modal") ?>
 

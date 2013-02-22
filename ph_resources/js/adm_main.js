@@ -114,8 +114,8 @@ return false;
 })
 
 //bind all .remove-item buttons
-$("#gal_form").on("mouseenter", ".btn.remove-item", function(event){$(this).tooltip("show")});
-$("#gal_form").on("click", ".btn.remove-item", function(event){ 
+$("#gal_form, #post_form").on("mouseenter", ".btn.remove-item", function(event){$(this).tooltip("show")});
+$("#gal_form, #post_form").on("click", ".btn.remove-item", function(event){ 
     Parent = $(this).parent().parent().parent();
     //remove ending hr
     Parent.next().next("hr").fadeOut("fast", function(){ $(this).remove() });
@@ -128,8 +128,8 @@ $("#gal_form").on("click", ".btn.remove-item", function(event){
 });
 
 //bind all .select-img buttons
-$("#gal_form").on("mouseenter", ".btn.select-img", function(event){$(this).tooltip("show")});
-$("#gal_form").on("click", ".btn.select-img", function(event){
+$("#gal_form, #post_form").on("mouseenter", ".btn.select-img", function(event){$(this).tooltip("show")});
+$("#gal_form, #post_form").on("click", ".btn.select-img", function(event){
     //set data for url filed (used for returning data from modal)
     $(this).prev("input").data("waiting-for-url", true); 
     //show modal box
@@ -142,7 +142,7 @@ $("#img-select-save").click(function(){
     //get selected radio
     value = $("input[type=radio]:checked","#imageModal").val();
     //get filed that is waiting for value from the modal box
-    input = $("#gal_form input").filter(function(){return $.data(this, "waiting-for-url");});
+    input = $("#gal_form input, #post_form input").filter(function(){return $.data(this, "waiting-for-url");});
     //if a radio was selected set the value of the waiting field
     if(value){ input.val(value); }
 })
@@ -150,7 +150,7 @@ $("#img-select-save").click(function(){
 //bind modal box when finished hiding
 $("#imageModal").on("hidden", function(){
     //remove waiting status from the field
-    $("#gal_form input").filter(function(){return $.data(this, "waiting-for-url");}).removeData("waiting-for-url");
+    $("#gal_form input, #post_form").filter(function(){return $.data(this, "waiting-for-url");}).removeData("waiting-for-url");
     // uncheck any radio buttons in the modal
     $("input:checked", $(this)).attr("checked",false);
 })

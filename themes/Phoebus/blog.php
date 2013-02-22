@@ -74,8 +74,8 @@ else:
 
 				<article class="well stack">
 					<section class="article-image thumbnail">
-						<a href="http://placehold.it/900x350" target="_blank" data-type="colorbox">
-							<img src="http://placehold.it/900x350" alt="##">
+						<a href="<?php $ph->media->imageHref($post["feat_image"]) ?>" target="_blank" data-type="colorbox">
+							<img src="<?php $ph->media->thumbHref($post["feat_image"]) ?>" alt="##">
 						</a>
 					</section>
 
