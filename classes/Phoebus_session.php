@@ -103,7 +103,10 @@ class Phoebus_session{
 		}
 	}
 
-
+	/**
+	 * Create an md5 salt key for user password generation
+	 * @return [string] [md5 parsed string];
+	 */
 	public function createSalt(){
 		$a = array(
 				'À','Á','Â','Ã','Ä','Å','Æ','Ç','È','É','Ê','Ë','Ì','Í','Î','Ï','Ð','Ñ','Ò','Ó','Ô','Õ','Ö','Ø','Ù','Ú','Û','Ü','Ý','ß',
