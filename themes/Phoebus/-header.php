@@ -93,10 +93,10 @@
                             </li>
                         </ul>
 
-                        <form action="" class="navbar-form pull-right">
+                        <form action="<?php $ph->href("search/") ?>"  method="get" class="navbar-form pull-right">
                             <div class="input-prepend">
                                 <button class="btn">Search</button>
-                                <input class="" id="search-input" type="text" placeholder=" ...">
+                                <input name="for" class="" id="search-input" type="text" placeholder=" ...">
                             </div>
                         </form>
                         <?php if($ph->session->is_loggedIn()):?>

@@ -837,6 +837,10 @@ span.highlight{
 	color:;
 }
 
+.stack-list li{
+	margin-bottom: 60px;
+}
+
 
 .stack{
 	position: relative;

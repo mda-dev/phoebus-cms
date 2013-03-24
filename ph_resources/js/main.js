@@ -343,6 +343,11 @@ var searchboxLogin =
 
 $(document).ready(function(){
 
+	$('#myTab a:first').tab('show');
+	$('#myTab a').click(function (e) {
+		e.preventDefault();
+		$(this).tab('show');
+	})
 
 	flexSlider._init();
 	portfolioGrid._init();
