@@ -268,5 +268,26 @@ class Phoebus
 
 		return $bytes;
 	}
+
+	public function leadingZero($things = NULL)
+	{
+
+		switch(gettype($things)){
+
+			case "array":
+				$number = sprintf("%02s", count($things));
+				break;
+
+			case 'integer':
+				$number = sprintf("%02s", $things);
+				break;
+			default:
+				$number = "00";
+				break; 
+		}
+	
+		
+		return $number;
+	}
 }
 ?>
